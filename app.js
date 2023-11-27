@@ -19,6 +19,10 @@ app.use('/experiences', proxy(process.env.MS_EXPERIENCES || 'http://localhost:50
 app.use('/projects', proxy(process.env.MS_PROJECTS || 'http://localhost:5014'));
 app.use('/skills', proxy(process.env.MS_SKILLS || 'http://localhost:5015'));
 
+// 👇 Start handling routes here
+const indexRoutes = require("./routes/index.routes");
+app.use("/", indexRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
