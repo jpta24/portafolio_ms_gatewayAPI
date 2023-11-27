@@ -20,4 +20,4 @@ EXPOSE 5010
 CMD ["node", "server.js"]
 
 # docker build -t test-docker-back .
-# docker run --rm -p 5005:5010 --env-file ./.env --name portafolio-server-container test-docker-back
+# docker run --rm -p 5010:5010 --env-file ./.env --name portafolio-server-container test-docker-back
