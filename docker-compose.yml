@@ -1,0 +1,48 @@
+version: '3'
+services:
+  gateway:
+    image: test-docker-gateway
+    ports:
+      - "5010:5010" 
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ./.env
+
+  ms_api:
+    image: test-docker-ms_api
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ../microservices/api/.env
+
+  ms_user:
+    image: test-docker-ms_users
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ../microservices/user/.env
+
+  ms_experiences:
+    image: test-docker-ms_experiences
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ../microservices/experiences/.env
+
+  ms_projects:
+    image: test-docker-ms_projects
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ../microservices/projects/.env
+
+  ms_skills:
+    image: test-docker-ms_skills
+    networks:
+      - my-portafolio-network
+    env_file:
+      - ../microservices/skills/.env
+
+networks:
+  my-portafolio-network:
